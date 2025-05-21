@@ -2,55 +2,231 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Danh sách Bài học và Bài tập</title>
   <style>
+    :root {
+      --primary-color: #3498db;
+      --secondary-color: #2c3e50;
+      --accent-color: #e74c3c;
+      --light-bg: #f9f9f9;
+      --dark-bg: #34495e;
+      --text-color: #333;
+      --light-text: #fff;
+      --shadow: 0 4px 6px rgba(0,0,0,0.1);
+      --border-radius: 8px;
+      --transition: all 0.3s ease;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f3f3f3;
-      padding: 20px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      color: var(--text-color);
+      line-height: 1.6;
+      padding: 0;
+      min-height: 100vh;
     }
+    
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    
+    header {
+      background-color: var(--dark-bg);
+      color: var(--light-text);
+      padding: 30px 0;
+      text-align: center;
+      border-radius: var(--border-radius);
+      margin-bottom: 40px;
+      box-shadow: var(--shadow);
+    }
+    
     h1 {
-      color: #2c3e50;
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      font-weight: 700;
     }
+    
+    header p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+    
     section {
       background: white;
-      padding: 20px;
-      border-radius: 10px;
+      padding: 25px;
+      border-radius: var(--border-radius);
+      margin-bottom: 30px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      border-left: 5px solid var(--primary-color);
+    }
+    
+    section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+    
+    h2 {
+      color: var(--secondary-color);
+      font-size: 1.8rem;
       margin-bottom: 20px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-bottom: 2px solid #eee;
+      padding-bottom: 10px;
+      display: flex;
+      align-items: center;
     }
-    ol {
-      padding-left: 0;
+    
+    h2 span {
+      margin-right: 10px;
+      font-size: 1.8rem;
     }
+    
+    ol, ul {
+      padding-left: 20px;
+    }
+    
     li {
-      margin: 10px 0;
+      margin: 15px 0;
+      position: relative;
     }
+    
+    ol li::marker {
+      color: var(--primary-color);
+      font-weight: bold;
+    }
+    
+    ul li {
+      list-style-type: none;
+      padding-left: 28px;
+    }
+    
+    ul li::before {
+      content: "📋";
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-size: 18px;
+    }
+    
     a {
       text-decoration: none;
-      color: #2980b9;
+      color: var(--primary-color);
+      font-weight: 500;
+      transition: var(--transition);
+      position: relative;
+      padding: 2px 0;
     }
+    
+    a::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--primary-color);
+      transition: var(--transition);
+    }
+    
     a:hover {
-      text-decoration: underline;
+      color: var(--accent-color);
+    }
+    
+    a:hover::after {
+      width: 100%;
+      background-color: var(--accent-color);
+    }
+    
+    .card {
+      background: var(--light-bg);
+      border-radius: var(--border-radius);
+      padding: 15px;
+      margin-bottom: 10px;
+      transition: var(--transition);
+    }
+    
+    .card:hover {
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+    
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      color: var(--secondary-color);
+      font-size: 0.9rem;
+    }
+    
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+      
+      section {
+        padding: 20px;
+      }
     }
   </style>
 </head>
 <body>
+  <div class="container">
+    <header>
+      <h1>Danh sách Học liệu & Bài tập</h1>
+      <p>Tài liệu học tập và luyện tập cho khóa học</p>
+    </header>
 
-  <h1>Danh sách tóm tắt từng buổi và một số trang để luyện tập</h1>
+    <section class="summary-section">
+      <h2><span>🧠</span> Tóm tắt bài học</h2>
+      <div class="card">
+        <ol>
+          <li>
+            <a href="https://www.notion.so/Bu-i-1-1-s-th-HTML-c-b-n-1fabc3de9f558009ac8dd7b7ddf0ae62?pvs=4">
+              Buổi 1: Các thẻ HTML cơ bản
+            </a>
+          </li>
+          <!-- Chỗ cho các bài học tiếp theo -->
+        </ol>
+      </div>
+    </section>
 
-  <section>
-    <h2>🧠 Tóm tắt</h2>
-    <ol>
-      <li><a href="https://www.notion.so/Bu-i-1-1-s-th-HTML-c-b-n-1fabc3de9f558009ac8dd7b7ddf0ae62?pvs=4">Buổi 1: 1 số thẻ HTML cơ bản</a></li>
-    </ol>
-  </section>
+    <section class="practice-section">
+      <h2><span>📝</span> Bài luyện tập</h2>
+      <div class="card">
+        <ul>
+          <li>
+            <a href="html-practice-1.html">HTML Practice 1</a>
+          </li>
+          <!-- Chỗ cho các bài tập tiếp theo -->
+        </ul>
+      </div>
+    </section>
+    
+    <!-- <section class="resources-section">
+      <h2><span>📚</span> Tài nguyên bổ sung</h2>
+      <div class="card">
+        <ul>
+          <li>
+            <a href="#">Hướng dẫn HTML & CSS cơ bản</a>
+          </li>
+          <li>
+            <a href="#">Tài liệu tham khảo</a>
+          </li>
+        </ul>
+      </div>
+    </section> -->
 
-  <section>
-    <h2>📝 Bài luyện tập</h2>
-    <ul>
-      <li><a href="html-practice-1.html">HTML Practice 1</a></li>
-    </ul>
-  </section>
-
+    <footer>
+      <p>&copy; 2025 - Trang học tập và luyện tập cho Troy và Xuân</p>
+    </footer>
+  </div>
 </body>
 </html>
