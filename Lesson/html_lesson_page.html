@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buổi 1: Các thẻ HTML cơ bản</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2980b9;
+            --accent-color: #e74c3c;
+            --text-color: #333;
+            --light-bg: #f4f6f9;
+            --border-color: #ddd;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+            padding: 0;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .date {
+            font-style: italic;
+            font-weight: 300;
+            margin-top: 1rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .lesson-section {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+            border-left: 5px solid var(--primary-color);
+        }
+        
+        .lesson-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 1.8rem;
+        }
+        
+        .lesson-section h3 {
+            color: var(--secondary-color);
+            margin: 1rem 0;
+        }
+        
+        .lesson-section p {
+            margin-bottom: 1rem;
+        }
+        
+        .example-section {
+            margin: 1.5rem 0;
+            position: relative;
+        }
+
+        .example-label {
+            background-color: #f8f9fa;
+            padding: 0.5rem 1rem;
+            display: inline-block;
+            font-weight: bold;
+            border-radius: 4px 4px 0 0;
+            margin-bottom: -1px;
+            border: 1px solid var(--border-color);
+            border-bottom: none;
+            color: var(--primary-color);
+        }
+
+        .code-block {
+            background-color: #f8f9fa;
+            border: 1px solid var(--border-color);
+            border-radius: 0 4px 4px 4px;
+            padding: 1rem;
+            overflow-x: auto;
+            font-family: 'Consolas', 'Courier New', monospace;
+            margin-bottom: 1rem;
+        }
+        
+        .result-block {
+            background-color: white;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+        
+        .result-label {
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 2px 10px;
+            font-size: 0.8rem;
+            border-radius: 4px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        
+        table, th, td {
+            border: 1px solid var(--border-color);
+        }
+        
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #f1f1f1;
+            font-weight: bold;
+        }
+        
+        ul, ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 1rem 0;
+        }
+        
+        .explanation {
+            background-color: rgba(52, 152, 219, 0.1);
+            border-left: 4px solid var(--primary-color);
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .explanation h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .explanation table {
+            margin: 1rem 0;
+        }
+        
+        .divider {
+            border-top: 1px dashed var(--border-color);
+            margin: 2rem 0;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: var(--secondary-color);
+            color: white;
+            margin-top: 2rem;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+
+        .red-text {
+            color: red;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .lesson-section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Buổi 1: Các thẻ HTML cơ bản</h1>
+        <p class="date">21/05/2025</p>
+        <p class="date">
+            <a href="https://www.notion.so/Bu-i-1-1-s-th-HTML-c-b-n-1fabc3de9f558009ac8dd7b7ddf0ae62?pvs=4">
+              Link Notion nếu cần 
+            </a>
+        </p>
+    </header>
+    
+    <div class="container">
+        <!-- Thẻ tiêu đề -->
+        <section class="lesson-section" id="heading">
+            <h2>✅ 1. Thẻ tiêu đề: &lt;h1&gt; đến &lt;h6&gt;</h2>
+            
+            <div class="example-section">
+                <div class="example-label">Ví dụ mã HTML:</div>
+                <div class="code-block">
+                    &lt;h1&gt;Tiêu đề H1&lt;/h1&gt;<br>
+                    &lt;h2&gt;Tiêu đề H2&lt;/h2&gt;<br>
+                    &lt;h3&gt;Tiêu đề H3&lt;/h3&gt;
+                </div>
+                
+                <div class="result-block">
+                    <span class="result-label">Kết quả hiển thị</span>
+                    <h1>Tiêu đề H1</h1>
+                    <h2>Tiêu đề H2</h2>
+                    <h3>Tiêu đề H3</h3>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Thẻ đoạn văn -->
+        <section class="lesson-section" id="paragraph">
+            <h2>✅ 2. Thẻ đoạn văn: &lt;p&gt;</h2>
+            
+            <div class="example-section">
+                <div class="example-label">Ví dụ mã HTML:</div>
+                <div class="code-block">
+                    &lt;p&gt;Đây là một đoạn văn bản mô tả nội dung của trang web.&lt;/p&gt;
+                </div>
+                
+                <div class="result-block">
+                    <span class="result-label">Kết quả hiển thị</span>
+                    <p>Đây là một đoạn văn bản mô tả nội dung của trang web.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Thẻ liên kết -->
+        <section class="lesson-section" id="link">
+            <h2>✅ 3. Thẻ liên kết: &lt;a href="..."&gt;</h2>
+            
+            <div class="example-section">
+                <div class="example-label">Ví dụ mã HTML:</div>
+                <div class="code-block">
+                    &lt;a href="https://www.google.com"&gt;Truy cập Google&lt;/a&gt;
+                </div>
+                
+                <div class="result-block">
+                    <span class="result-label">Kết quả hiển thị</span>
+                    <a href="https://www.google.com">Truy cập Google</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Danh sách -->
+        <section class="lesson-section" id="list">
+            <h2>✅ 4. Danh sách: &lt;ul&gt;, &lt;ol&gt;, &lt;li&gt;</h2>
+            
+            <div class="example-section">
+                <div class="example-label">Ví dụ mã HTML:</div>
+                <div class="code-block">
+                    &lt;ul&gt;<br>
+                    &nbsp;&nbsp;&lt;li&gt;HTML&lt;/li&gt;<br>
+                    &nbsp;&nbsp;&lt;li&gt;CSS&lt;/li&gt;<br>
+                    &nbsp;&nbsp;&lt;li&gt;JavaScript&lt;/li&gt;<br>
+                    &lt;/ul&gt;<br>
+                    <br>
+                    &lt;ol&gt;<br>
+                    &nbsp;&nbsp;&lt;li&gt;Bước 1&lt;/li&gt;<br>
+                    &nbsp;&nbsp;&lt;li&gt;Bước 2&lt;/li&gt;<br>
+                    &nbsp;&nbsp;&lt;li&gt;Bước 3&lt;/li&gt;<br>
+                    &lt;/ol&gt;
+                </div>
+                
+                <div class="result-block">
+                    <span class="result-label">Kết quả hiển thị</span>
+                    <ul>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+                    </ul>
+                    
+                    <ol>
+                        <li>Bước 1</li>
+                        <li>Bước 2</li>
+                        <li>Bước 3</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Phần tử khối -->
+        <section class="lesson-section" id="div">
+            <h2>✅ 5. Phần tử khối: &lt;div&gt;</h2>
+            
+            <div class="example-section">
+                <div class="example-label">Ví dụ mã HTML:</div>
+                <div class="code-block">
+                    &lt;div&gt;<br>
+                    &nbsp;&nbsp;&lt;h3&gt;Thông tin cá nhân&lt;/h3&gt;<br>
+                    &nbsp;&nbsp;&lt;p&gt;Họ tên: Nguyễn Văn A&lt;/p&gt;<br>
+                    &lt;/div&gt;
+                </div>
+                
+                <div class="result-block">
+                    <span class="result-label">Kết quả hiển thị</span>
+                    <div>
+                        <h3>Thông tin cá nhân</h3>
+                        <p>Họ tên: Nguyễn Văn A</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Phần tử nội tuyến -->
+        <section class="lesson-section" id="span">
+            <h2>✅ 6. Phần tử nội tuyến: &lt;span&gt;</h2>
+            
+            <div class="example-section">
+                <div class="example-label">Ví dụ mã HTML:</div>
+                <div class="code-block">
+                    &lt;p&gt;Xin chào &lt;span style="color: red;"&gt;bạn&lt;/span&gt;, chúc bạn vui vẻ!&lt;/p&gt;
+                </div>
+                
+                <div class="result-block">
+                    <span class="result-label">Kết quả hiển thị</span>
+                    <p>Xin chào <span class="red-text">bạn</span>, chúc bạn vui vẻ!</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Hình ảnh -->
+        <section class="lesson-section" id="image">
+            <h2>✅ 7. Hình ảnh: &lt;img&gt;</h2>
+            
+            <div class="example-section">
+                <div class="example-label">Ví dụ mã HTML:</div>
+                <div class="code-block">
+                    &lt;img src="https://via.placeholder.com/150" alt="Ảnh mẫu"&gt;
+                </div>
+                
+                <div class="explanation">
+                    <h4>Giải thích:</h4>
+                    <p>Cú pháp HTML:</p>
+                    <div class="code-block">
+                        &lt;img src="https://via.placeholder.com/150" alt="Ảnh mẫu"&gt;
+                    </div>
+                    
+                    <h4>Ý nghĩa:</h4>
+                    <table>
+                        <tr>
+                            <th>Thành phần</th>
+                            <th>Ý nghĩa</th>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;img&gt;</code></td>
+                            <td>Thẻ dùng để <strong>hiển thị hình ảnh</strong> trong HTML. Đây là <strong>thẻ tự đóng</strong>, không cần thẻ đóng <code>&lt;/img&gt;</code>.</td>
+                        </tr>
+                        <tr>
+                            <td><code>src="https://via.placeholder.com/150"</code></td>
+                            <td><code>src</code> viết tắt của <strong>source</strong> – <strong>đường dẫn đến ảnh</strong> cần hiển thị. Theo ví dụ, ảnh được lấy từ trang <code>https://via.placeholder.com</code>và có <strong>kích thước 150x150 pixels</strong>.</td>
+                        </tr>
+                        <tr>
+                            <td><code>alt="Ảnh mẫu"</code></td>
+                            <td><code>alt</code> là <strong>văn bản thay thế</strong> – hiển thị nếu hình ảnh không tải được, đồng thời giúp cải thiện <strong>truy cập cho người khiếm thị.</strong></td>
+                        </tr>
+                    </table>
+                    
+                    <p>Ví dụ nâng cao:</p>
+                    <div class="code-block">
+                        &lt;img src="anh.jpg" alt="Ảnh demo" width="200" height="100"&gt;
+                    </div>
+                    <p>→ Hiển thị ảnh với chiều rộng 200px và chiều cao 100px.</p>
+                </div>
+                
+                <div class="result-block">
+                    <span class="result-label">Kết quả hiển thị</span>
+                    <img src="https://via.placeholder.com/150" alt="Ảnh mẫu">
+                </div>
+            </div>
+        </section>
+        
+        <!-- Bảng cơ bản -->
+        <section class="lesson-section" id="table">
+            <h2>✅ 8. Bảng cơ bản: &lt;table&gt;, &lt;tr&gt;, &lt;th&gt;, &lt;td&gt;</h2>
+            
+            <div class="example-section">
+                <div class="example-label">Ví dụ mã HTML:</div>
+                <div class="code-block">
+                    &lt;table&gt;<br>
+                    &nbsp;&nbsp;&lt;tr&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;STT&lt;/th&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Họ tên&lt;/th&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Tuổi&lt;/th&gt;<br>
+                    &nbsp;&nbsp;&lt;/tr&gt;<br>
+                    &nbsp;&nbsp;&lt;tr&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;1&lt;/td&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;Nguyễn Văn A&lt;/td&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;20&lt;/td&gt;<br>
+                    &nbsp;&nbsp;&lt;/tr&gt;<br>
+                    &lt;/table&gt;
+                </div>
+                
+                <div class="result-block">
+                    <span class="result-label">Kết quả hiển thị</span>
+                    <table>
+                        <tr>
+                            <th>STT</th>
+                            <th>Họ tên</th>
+                            <th>Tuổi</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Nguyễn Văn A</td>
+                            <td>20</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Gộp cột -->
+        <section class="lesson-section" id="colspan">
+            <h2>✅ 9. Gộp cột (colspan)</h2>
+            
+            <div class="example-section">
+                <div class="example-label">Ví dụ mã HTML:</div>
+                <div class="code-block">
+                    &lt;table&gt;<br>
+                    &nbsp;&nbsp;&lt;tr&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;th colspan="3"&gt;THÔNG TIN SINH VIÊN&lt;/th&gt;<br>
+                    &nbsp;&nbsp;&lt;/tr&gt;<br>
+                    &nbsp;&nbsp;&lt;tr&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;Nguyễn Văn A&lt;/td&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;20&lt;/td&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;12A1&lt;/td&gt;<br>
+                    &nbsp;&nbsp;&lt;/tr&gt;<br>
+                    &lt;/table&gt;
+                </div>
+                
+                <div class="explanation">
+                    <h4>Giải thích:</h4>
+                    <div class="code-block">
+                        &lt;th colspan="3"&gt;THÔNG TIN SINH VIÊN&lt;/th&gt;
+                    </div>
+                    <p>→ Hàng đầu tiên này sẽ chiếm 3 <strong>cột liền kề</strong> trong hàng.</p>
+                </div>
+                
+                <div class="result-block">
+                    <span class="result-label">Kết quả hiển thị</span>
+                    <table>
+                        <tr>
+                            <th colspan="3">THÔNG TIN SINH VIÊN</th>
+                        </tr>
+                        <tr>
+                            <td>Nguyễn Văn A</td>
+                            <td>20</td>
+                            <td>12A1</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Gộp dòng -->
+        <section class="lesson-section" id="rowspan">
+            <h2>✅ 10. Gộp dòng (rowspan)</h2>
+            
+            <div class="example-section">
+                <div class="example-label">Ví dụ mã HTML:</div>
+                <div class="code-block">
+                    &lt;table&gt;<br>
+                    &nbsp;&nbsp;&lt;tr&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;th rowspan="2"&gt;Môn học&lt;/th&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;Toán&lt;/td&gt;<br>
+                    &nbsp;&nbsp;&lt;/tr&gt;<br>
+                    &nbsp;&nbsp;&lt;tr&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;Văn&lt;/td&gt;<br>
+                    &nbsp;&nbsp;&lt;/tr&gt;<br>
+                    &lt;/table&gt;
+                </div>
+                
+                <div class="explanation">
+                    <h4>Giải thích:</h4>
+                    <div class="code-block">
+                        &lt;th rowspan="2"&gt;Môn học&lt;/th&gt;
+                    </div>
+                    <p>→ Ô này sẽ chiếm <strong>2 hàng dọc</strong> ở cùng cột.</p>
+                </div>
+                
+                <div class="result-block">
+                    <span class="result-label">Kết quả hiển thị</span>
+                    <table>
+                        <tr>
+                            <th rowspan="2">Môn học</th>
+                            <td>Toán</td>
+                        </tr>
+                        <tr>
+                            <td>Văn</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <p>© 2025 - Bài học HTML cơ bản</p>
+    </footer>
+</body>
+</html>
